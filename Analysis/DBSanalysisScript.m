@@ -6,10 +6,10 @@
 
 studyTag = 'DBSStudy';
 
-% spike2
+spike2
 filebase = '2019_02_14_11_10';
-% pupil labs
-% filebase = '2019_01_13_10_03';
+pupil labs
+filebase = '2019_01_13_10_03';
 [topNode, FIRA] = topsTreeNodeTopNode.loadRawData(studyTag, filebase);
 
 % task indices
