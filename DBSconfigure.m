@@ -109,7 +109,8 @@ strs = { ...
    'dotsReadableHIDKeyboard', paceStr, 'Each trial starts by pressing the space bar.'; ...
    'default',                 'Each trial starts automatically.', ' '};
 for index = 1:size(strs,1)
-   if ~isempty(topNode.getHelperByClassName(strs{index,1}))
+    if strncmp(readables{1}, strs{index,1}, length(strs{index,1}))
+%   if ~isempty(topNode.getHelperByClassName(strs{index,1}))
       break;
    end 
 end
@@ -158,7 +159,7 @@ for ii = 1:2:length(taskSpecs)
             args = cat(2, args, {{'timing', 'minimumRT'}, 0.4});
          end
          task = topsTreeNodeTaskSaccade.getStandardConfiguration(args{:}, ...
-            {'task', 'independentVariables', 'direction', 'value'}, ...
+            {'independentVariables', 'direction', 'values'}, ...
             topNode.nodeData{'Settings'}{'saccadeDirections'});
          
       case {'SB'}
@@ -182,7 +183,7 @@ for ii = 1:2:length(taskSpecs)
          
          % Make RTDots task with args
          task = topsTreeNodeTaskRTDots.getStandardConfiguration(args{:}, ...
-         {'task', 'independentVariables', 'direction', 'value'}, ...
+         {'independentVariables', 'direction', 'values'}, ...
             topNode.nodeData{'Settings'}{'dotDirections'});
 
          % Add special instructions for first dots task
